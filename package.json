@@ -1,0 +1,31 @@
+{
+    "name": "blog-scichart-react",
+    "version": "1.0.0",
+    "description": "scichart-react vs scichart",
+    "main": "src/index.tsx",
+    "scripts": {
+        "build": "webpack --mode production",
+        "start": "ts-node server",
+        "dev": "webpack-dev-server --mode development"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "scichart": "^3.5.711",
+        "ts-node": "^10.9.2"
+    },
+    "devDependencies": {
+        "@types/react": "^18.3.18",
+        "@types/react-dom": "^18.3.5",
+        "copy-webpack-plugin": "^12.0.2",
+        "prettier": "^3.4.2",
+        "ts-loader": "^9.5.1",
+        "typescript": "^5.1.6",
+        "webpack": "^5.97.1",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^5.2.0"
+    }
+}
