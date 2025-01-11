@@ -1,4 +1,4 @@
-import { ESeriesType, EAxisType, EChart2DModifierType, EThemeProviderType } from 'scichart';
+import { ESeriesType, EThemeProviderType } from 'scichart';
 import { SciChartReact } from 'scichart-react';
 
 const chartConfig = {
