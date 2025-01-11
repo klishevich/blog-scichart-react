@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { createChart } from './createChart';
 import { SciChartSurface } from 'scichart';
 
-export default function SciChart() {
+export default function SciChartPure() {
     const chartId = 'chartId';
     const chartRef = useRef<SciChartSurface>();
 
