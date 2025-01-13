@@ -8,8 +8,8 @@ function App() {
                 <h1>scichart-react vs scichart</h1>
                 <p>Comparison of creating charts with scichart-react and just with scichart</p>
             </header>
-            <SciChartReactDemo />
-            <div style={{ height: 10 }} />
+            {/* <SciChartReactDemo /> */}
+            {/* <div style={{ height: 10 }} /> */}
             <SciChartPureDemo />
         </div>
     );

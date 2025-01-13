@@ -1,17 +1,30 @@
-import { ESeriesType, EThemeProviderType } from 'scichart';
+import {
+    EThemeProviderType,
+    NumericAxis,
+    SciChartSurface,
+    SplineMountainRenderableSeries,
+    XyDataSeries,
+} from 'scichart';
 import { SciChartReact } from 'scichart-react';
 
-const chartConfig = {
-    surface: {
+// 2. Via Initialization function
+const chartInitializationFunction = async (rootElement: string | HTMLDivElement) => {
+    const { sciChartSurface, wasmContext } = await SciChartSurface.create(rootElement, {
         theme: { type: EThemeProviderType.Dark },
-        title: 'Basic Chart with scichart-react',
+        title: 'scichart-react via initialization function',
         titleStyle: {
             fontSize: 20,
         },
-    },
-    series: {
-        type: ESeriesType.SplineMountainSeries,
-        options: {
+    });
+
+    sciChartSurface.xAxes.add(new NumericAxis(wasmContext));
+    sciChartSurface.yAxes.add(new NumericAxis(wasmContext));
+    sciChartSurface.renderableSeries.add(
+        new SplineMountainRenderableSeries(wasmContext, {
+            dataSeries: new XyDataSeries(wasmContext, {
+                xValues: [0, 1, 2, 3, 4],
+                yValues: [3, 6, 1, 5, 2],
+            }),
             strokeThickness: 4,
             stroke: '#216939',
             fillLinearGradient: {
@@ -22,12 +35,12 @@ const chartConfig = {
                     { offset: 1, color: 'transparent' },
                 ],
             },
-        },
-        xyData: { xValues: [0, 1, 2, 3, 4], yValues: [3, 6, 1, 5, 2] },
-    },
+        }),
+    );
+
+    return { sciChartSurface };
 };
 
 export default function SciChartReactDemo() {
-    // @ts-ignore
-    return <SciChartReact style={{ width: 800, height: 600 }} config={chartConfig} />;
+    return <SciChartReact style={{ width: 800, height: 600 }} initChart={chartInitializationFunction} />;
 }
