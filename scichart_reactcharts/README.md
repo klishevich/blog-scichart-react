@@ -319,7 +319,7 @@ export default function ReactChartsDemo() {
 
 ```
 
-As a result we get this chart which works fine for the first 1000 point. However, after 1000 points it gets slow and it overall it takes 53 seconds to render the whole data set of 10,000 points. Where the expected time when rendering at 50FPS and appending 100 point at a time is 2 seconds.
+As a result we get this chart which works fine for the first 1000 point. However, after 1000 points it gets slow and in overall it takes 53 seconds to render the whole data set of 10,000 points. Where the expected time when rendering at 50FPS and appending 100 point at a time is 2 seconds.
 
 ![react charts tanstack with 10000 points](img/react_charts_tanstack_10000points.jpg)
 
@@ -492,7 +492,7 @@ export default function SciChartDemo() {
 
 As you can see SciChart.js example contains more code that the React Charts Tanstack example. But, besides the basic functionality we have added chart modifiers to make the chart interactive after the demo finishes. So that we can zoom in/out and pan the chart.
 
-```
+```typescript
 sciChartSurface.chartModifiers.add(
     new RubberBandXyZoomModifier(),
     new MouseWheelZoomModifier(),
@@ -504,7 +504,7 @@ sciChartSurface.chartModifiers.add(
 
 and we did some performance optimizations `containsNaN: false` and `isSorted: true` tells the engine that it can use binary search and skip the null checks.
 
-```
+```typescript
 const dataSeries: XyDataSeries[] = [
     new XyDataSeries(wasmContext, { containsNaN: false, isSorted: true }),
     new XyDataSeries(wasmContext, { containsNaN: false, isSorted: true }),
@@ -518,8 +518,10 @@ As a result we get the realtime chart that renders almost at 50 FPS. To be preci
 
 ## Conclusion
 
-We created random walk realtime performance demo using two libraries React Charts Tanstack and SciChart.js. 
-For React Charts Tanstack we got about 2 FPS for SciChart.js we got more than 40 FPS. It was not a surprise bearing in mind React Charts are using SVG and SciChart.js is using WebGL canvas.
-React Charts Tanstack have a nice api and it is a good solutions if there is no need to do realtime charts or to visualize a big amount of data points. However, when we are working with a large number of data point and looking for a realtime performance the right choice would be to use a hardware accelerated charting library like SciChart.js. 
+We created a random walk realtime performance demo using two libraries React Charts Tanstack and SciChart.js. 
+For React Charts Tanstack we got about 2 FPS for SciChart.js we got more than 40 FPS. It was not a surprise bearing in mind React Charts Tanstack is using SVG and SciChart.js is using WebGL canvas.
+React Charts Tanstack have a nice API and it is a good solution if there is no need to do realtime charts or to visualize a big amount of data points. On the other hand SciChart.js is a little bit more verbose in terms of the API, but is allows to fine tuning and shines with it's performance. Therefore, when working with a large number of data points or looking for a realtime performance the right choice would be to use a hardware accelerated charting library like SciChart.js. 
 
-Note. When running the examples do not run them simultaneously on one page, because of the JS single threaded nature you will the worst of two results for both.
+Note. When running the examples do not run them simultaneously on one page, because of the JS single threaded nature you will get the worst of two results for both.
+
+The source code is here https://github.com/klishevich/blog-scichart-react/tree/main/scichart_reactcharts
