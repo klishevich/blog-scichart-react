@@ -8,7 +8,7 @@ function App() {
                 <h1>SciChart vs React Charts Tanstack</h1>
             </header>
             <SciChartDemo />
-            <ReactChartsDemo />
+            {/* <ReactChartsDemo /> */}
         </div>
     );
 }
