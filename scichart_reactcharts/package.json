@@ -1,0 +1,32 @@
+{
+    "name": "scichart-reactcharts",
+    "version": "1.0.0",
+    "description": "scichart vs react charts tanstack",
+    "main": "src/index.tsx",
+    "scripts": {
+        "build": "webpack --mode production",
+        "start": "ts-node server",
+        "dev": "webpack-dev-server --mode development"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "react": "^19.0.0",
+        "react-charts": "^3.0.0-beta.57",
+        "react-dom": "^19.0.0",
+        "scichart": "^3.5.742",
+        "ts-node": "^10.9.2"
+    },
+    "devDependencies": {
+        "@types/react": "^19.0.10",
+        "@types/react-dom": "^19.0.4",
+        "copy-webpack-plugin": "^13.0.0",
+        "prettier": "^3.5.3",
+        "ts-loader": "^9.5.2",
+        "typescript": "^5.8.2",
+        "webpack": "^5.98.0",
+        "webpack-cli": "^6.0.1",
+        "webpack-dev-server": "^5.2.0"
+    }
+}
